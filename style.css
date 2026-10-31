@@ -1,0 +1,124 @@
+:root {
+  --page-bg: #f1f1f1;
+  --calculator-bg: #222;
+  --display-bg: #000;
+  --display-text: #0f0;
+  --button-bg: #eee;
+  --operator-bg: #ffcb4c;
+  --equal-bg: #4caf50;
+  --clear-bg: #ff6b6b;
+  --button-text: #000;
+  --button-accent-text: #fff;
+}
+
+:root.dark-theme {
+  --page-bg: #222;
+  --calculator-bg: #161616;
+  --display-bg: #000;
+  --display-text: #0f0;
+  --button-bg: #747474;
+  --operator-bg: #97792c;
+  --equal-bg: #2c642e;
+  --clear-bg: #7e3636;
+  --button-text: #d8d8d8;
+  --button-accent-text: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--page-bg);
+  transition: background 0.3s ease;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.calculator {
+  background: var(--calculator-bg);
+  transition: background 0.3s ease;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: var(--display-bg);
+  color: var(--display-text);
+  padding: 20px;
+  font-size: 28px;
+  text-align: right;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+#pre-result {
+  opacity: 0.75;
+  font-size: 18px;
+  min-height: 21px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--button-text);
+  padding: 20px 15px 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 6px;
+  background: var(--button-bg);
+  transition: 0.2s;
+}
+
+.btn.operator {
+  background: var(--operator-bg);
+}
+
+.btn.equal {
+  background: var(--equal-bg);
+  color: var(--button-accent-text);
+}
+
+.btn.clear {
+  background: var(--clear-bg);
+  color: var(--button-accent-text);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .display {
+    flex-grow: 1;
+  }
+
+  .buttons {
+    flex-grow: 1;
+  }
+}
